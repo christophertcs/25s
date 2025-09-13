@@ -26,25 +26,42 @@
     /* Header */
     header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:50}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-    /* logo icon replaces “25” box */
     .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
     .logo img{width:36px;height:36px;display:block}
     .brand-name{font-weight:800;color:var(--text)}
-    /* nav links */
     .actions{display:flex;gap:1rem;align-items:center}
     .actions a{display:inline-block;padding:.4rem .7rem;border-radius:8px;color:#334155;text-decoration:none;font-weight:600}
     .actions a:hover{background:#f1f5f9}
     .actions a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4rem 0}
-    .hero h2{font-size:2.2rem;margin:0 0 1.2rem}
-    .hero p{color:var(--muted);margin:0 0 1.6rem}
+    /* Hero (banner size/layout fixed) */
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr; /* a little more room for copy */
+      gap:2rem;
+      align-items:center;
+      padding:3.5rem 0;
+    }
+    .hero h2{font-size:clamp(1.6rem,2.2vw,2.2rem);margin:0 0 1.2rem}
+    .hero p{color:var(--muted);margin:0 0 1.2rem}
+
+    /* NEW: image wrapper constrains size/aspect */
+    .hero-visual{
+      max-width:520px;         /* keeps image from looking huge on wide screens */
+      margin-left:auto;
+      aspect-ratio:4/3;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 10px 20px rgba(0,0,0,.06);
+    }
+    .hero-visual img{
+      width:100%;height:100%;object-fit:cover;display:block;
+    }
 
     section{padding:3.5rem 0}
     .section-title{font-size:1.6rem;margin-bottom:1.2rem}
 
-    /* Services (no box) */
+    /* Services */
     .service-card{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
     .service-card img{border-radius:10px;width:100%;height:auto}
     .service-card h4{margin:.1rem 0 .7rem}
@@ -59,14 +76,23 @@
     .card-foot{display:flex;justify-content:space-between;align-items:center;gap:.6rem;width:100%}
     .price{font-weight:800}
 
+    /* NEW: clamp card descriptions to a few lines */
+    .desc{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;   /* show only a few lines */
+      overflow:hidden;
+      margin:.3rem 0 .7rem;
+    }
+
     /* Contact */
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:start}
-    .contact-right{padding-right:.5rem} /* a touch more breathing room on the right */
+    .contact-right{padding-right:.5rem}
     form{display:grid;gap:1.2rem}
     .row{
       display:grid;
       grid-template-columns:1fr 1fr;
-      column-gap:1.2rem;   /* ensures horizontal spacing between boxes */
+      column-gap:1.2rem;
       row-gap:1rem;
     }
     label{font-size:.9rem;color:#111827;display:block;margin-bottom:.4rem}
@@ -81,13 +107,21 @@
     }
     textarea{min-height:120px;resize:vertical}
 
-    /* Footer */
+    /* Footer (center icon) */
     footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);font-size:.9rem;background:#fafafa}
+    footer .logo{
+      justify-content:center;   /* center the flexed logo */
+      margin-inline:auto;       /* center the anchor itself */
+    }
+    footer .logo img{
+      width:40px;height:40px;display:block;margin:0 auto;
+    }
     footer .info{margin-top:.5rem;text-align:center}
 
     /* Responsive */
     @media(max-width:800px){
       .hero{grid-template-columns:1fr}
+      .hero-visual{max-width:none;aspect-ratio:16/9;margin:0} /* nicer banner shape on mobile */
       .service-card{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr}
       .row{grid-template-columns:1fr;column-gap:0}
@@ -102,8 +136,7 @@
   <header>
     <nav class="nav container">
       <a class="logo" href="#intro" aria-label="25s Home">
-        <img src="assets/logo.jpg" alt="25s logo">
-        <!-- If you want icon-only, delete the span below -->
+        <img src="assets/logo.jpg" alt="25s logo" loading="lazy">
         <span class="brand-name"></span>
       </a>
       <div class="actions" role="navigation" aria-label="Primary">
@@ -124,8 +157,9 @@
         <a href="#products" class="btn secondary">Browse Accessories</a>
       </div>
     </div>
-    <div>
-      <img src="assets/main_banner.png" alt="Technician repairing a smartphone" />
+    <!-- NEW: visual wrapper constrains banner nicely -->
+    <div class="hero-visual">
+      <img src="assets/main_banner.png" alt="Technician repairing a smartphone" loading="eager" />
     </div>
   </section>
 
@@ -139,7 +173,7 @@
   <!-- Services -->
   <section class="container" id="services">
     <div class="service-card">
-      <img src="assets/service_banner.jpg" alt="On-site phone and tablet repair" />
+      <img src="assets/service_banner.jpg" alt="On-site phone and tablet repair" loading="lazy" />
       <div>
         <h4>On-Site Phone &amp; Tablet Repairs</h4>
         <p>Professional phone, tablet, and small electronics repairs at your location. Fast, reliable, transparent quotes — most jobs finished in one visit.</p>
@@ -201,10 +235,9 @@
   <!-- Footer -->
   <footer>
     <div class="container" style="text-align:center">
+      <!-- REMOVED <center>; logo is centered via CSS now -->
       <a class="logo" href="#intro" aria-label="25s">
-        <center>
-          <img src="assets/logo.jpg" alt="25s logo">
-        </center>
+        <img src="assets/logo.jpg" alt="25s logo" loading="lazy">
       </a>
       <div class="info">25s.tech.info@gmail.com &nbsp; | &nbsp; (61) 433 311 605</div>
     </div>
@@ -230,21 +263,23 @@
     const modalTitle=document.getElementById('modalTitle');
     const modalDesc=document.getElementById('modalDesc');
 
+    // Build product cards with clamped preview text
     PRODUCTS.forEach(p=>{
       const card=document.createElement('div');
       card.className='card';
       card.innerHTML=`
-        <img src="${p.img}" alt="${p.name}">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
         <h5>${p.name}</h5>
-        <p class="muted" style="margin:.3rem 0 .7rem">${p.desc}</p>
+        <p class="muted desc">${p.desc}</p>  <!-- short preview -->
         <div class="card-foot">
-          <div class="price">$${p.price}</div>
+          <div class="price">$${p.price.toFixed(2)}</div>
           <button class="btn secondary" type="button" data-name="${p.name}" data-desc="${p.desc}">Details</button>
         </div>
       `;
       grid.appendChild(card);
     });
 
+    // Modal shows full description
     grid.addEventListener('click', e=>{
       const btn = e.target.closest('button[data-name]');
       if(!btn) return;
