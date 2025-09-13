@@ -54,7 +54,18 @@
     .btn:hover{background:var(--brand-600)}
     .hint{color:var(--muted);font-size:.95rem;margin-top:.9rem}
 
-    footer{border-top:1px solid var(--border);padding:1.2rem 0;color:var(--muted);font-size:.9rem;background:#fafafa;text-align:center}
+    /* Footer (center icon) */
+    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);font-size:.9rem;background:#fafafa}
+    footer .logo{
+      justify-content:center;   /* center the flexed logo */
+      margin-inline:auto;       /* center the anchor itself */
+    }
+    footer .logo img{
+      width:40px;height:40px;display:block;margin:0 auto;
+    }
+    footer .info{margin-top:.5rem;text-align:center}
+    
+
   </style>
 </head>
 <body>
@@ -62,7 +73,7 @@
     <nav class="nav container" aria-label="Breadcrumb">
       <a class="logo" href="/" aria-label="25s Home">
         <img src="assets/logo_svg.png" alt="25s logo" loading="lazy">
-        <span class="brand-name">25s</span>
+        <span class="brand-name"></span>
       </a>
     </nav>
   </header>
@@ -84,8 +95,13 @@
   </main>
 
   <footer>
-    <div class="container">
-      E: 25s.tech.info@gmail.com &nbsp; | &nbsp; P: +61 433 311 605
+    <div class="container" style="text-align:center">
+      <!-- REMOVED <center>; logo is centered via CSS now -->
+      <a class="logo" href="#intro" aria-label="25s">
+        <img src="assets/logo_svg.png" alt="25s logo" loading="lazy">
+      </a>
+      <div class="info">E: 25s.tech.info@gmail.com &nbsp; | &nbsp; P: +61 433 311 605</div>
+      <div class="info">Copyright © 25s. All Rights Reserved. </div>
     </div>
   </footer>
 
