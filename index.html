@@ -19,12 +19,13 @@
     .container{width:min(1100px,92%);margin-inline:auto}
 
     /* Buttons */
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer;margin-top:.5rem;text-decoration: none;line-height: 1.2;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer;margin-top:.5rem;text-decoration: none;line-height: 1.2;font: inherit; appearance: none;}
     .btn:hover{background:var(--brand-600)}
     .btn.secondary{background:#fff;text-decoration: none;line-height: 1.2;color:var(--text);border:1px solid var(--border)}
     .btn.secondary:hover {
-      background: #f9fafb;         /* light gray hover */
-      border-color: var(--brand);  /* subtle brand accent */
+      background: #f1f5f9;   /* slightly darker neutral background */
+      border-color: var(--brand-600); /* stronger brand accent */
+      color: var(--brand-600);        /* text shifts to brand color */
     }
 
     /* Header */
@@ -187,7 +188,7 @@
 
   <!-- Products -->
   <section class="container" id="products">
-    <h3 class="section-title">Popular Products</h3>
+    <h3 class="section-title">Feature Products</h3>
     <div class="products-grid" id="productsGrid"></div>
   </section>
 
@@ -243,7 +244,8 @@
       <a class="logo" href="#intro" aria-label="25s">
         <img src="assets/logo_svg.png" alt="25s logo" loading="lazy">
       </a>
-      <div class="info">25s.tech.info@gmail.com &nbsp; | &nbsp; (61) 433 311 605</div>
+      <div class="info">E: 25s.tech.info@gmail.com &nbsp; | &nbsp; P: +61 433 311 605</div>
+      <div class="info">Copyright © 25s. All Rights Reserved. </div>
     </div>
   </footer>
 
@@ -259,8 +261,8 @@
   <script>
     const PRODUCTS = [
       {id:'p1',name:'Phone Screen Press Clamp',price:45.00,img:'assets/screen_press_clamp.jpg',desc:'Professional screen press clamps designed for phone and tablet repair. These adjustable dual-axis clamps hold screens firmly in place during gluing or reassembly, ensuring a tight, even bond. Ideal for LCD replacement, screen refurbishing, and adhesive curing — making repairs more precise and reliable.'},
-      {id:'p2',name:'Phone Dust Cleaning Kit',price:69.94,img:'assets/clean_kit.png',desc:'Complete cleaning kit for phones, charging ports, speaker grills, and tight gaps. Includes tools to remove dust and debris, plus screen cleaning solution for a spotless finish. Perfect for maintaining clear sound, smooth charging, and a cleaner device overall.'},
-      {id:'p3',name:'Phone Back Film',price:25.99,img:'assets/phone_back_film.jpg',desc:'Upgrade your phone’s protection with our premium 3M skin-feel Kevlar back film. Precisely laser-cut for a perfect fit, this ultra-thin 0.3mm carbon fiber material offers excellent scratch resistance, a soft skin-like texture, and full coverage — even for foldable screens. Durable yet lightweight, it keeps your device safe while maintaining its sleek look.'}
+      {id:'p2',name:'Phone Dust Cleaning Kit',price:69.30,img:'assets/clean_kit.png',desc:'Complete cleaning kit for phones, charging ports, speaker grills, and tight gaps. Includes tools to remove dust and debris, plus screen cleaning solution for a spotless finish. Perfect for maintaining clear sound, smooth charging, and a cleaner device overall.'},
+      {id:'p3',name:'Phone Back Film',price:25.45,img:'assets/phone_back_film.jpg',desc:'Upgrade your phone’s protection with our premium 3M skin-feel Kevlar back film. Precisely laser-cut for a perfect fit, this ultra-thin 0.3mm carbon fiber material offers excellent scratch resistance, a soft skin-like texture, and full coverage — even for foldable screens. Durable yet lightweight, it keeps your device safe while maintaining its sleek look.'}
     ];
     const grid=document.getElementById('productsGrid');
     const modal=document.getElementById('productModal');
