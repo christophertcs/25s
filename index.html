@@ -13,99 +13,100 @@
       --brand:#0ea5e9;
       --brand-600:#0284c7;
       --bg:#ffffff;
-      --surface:#ffffff;
-      --soft:#f8fafc;
     }
-    /* Base */
-    html,body{height:100%}
-    body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--text);line-height:1.65;background:var(--bg)}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Inter",sans-serif;color:var(--text);line-height:1.7;background:var(--bg)}
     .container{width:min(1100px,92%);margin-inline:auto}
 
-    /* Spacing helpers */
-    .flow > * + *{margin-top:1rem}
-    .flow-lg > * + *{margin-top:1.25rem}
-
     /* Buttons */
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer;margin-top:.5rem}
     .btn:hover{background:var(--brand-600)}
     .btn.secondary{background:#fff;color:var(--text);border:1px solid var(--border)}
-    .btn.sm{padding:.5rem .85rem;border-radius:8px;font-weight:600}
 
     /* Header */
     header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:50}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-    .brand{display:flex;align-items:center;gap:.6rem}
-    .logo{width:36px;height:36px;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:#fff}
-    .logo img{width:100%;height:100%;object-fit:cover}
-
-    .nav a{padding:.25rem .25rem;opacity:.9}
-    .nav a + a{margin-left:1rem}
+    /* logo icon replaces “25” box */
+    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+    .logo img{width:36px;height:36px;display:block}
+    .brand-name{font-weight:800;color:var(--text)}
+    /* nav links */
+    .actions{display:flex;gap:1rem;align-items:center}
+    .actions a{display:inline-block;padding:.4rem .7rem;border-radius:8px;color:#334155;text-decoration:none;font-weight:600}
+    .actions a:hover{background:#f1f5f9}
+    .actions a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;padding:4rem 0}
-    .hero h1{font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.15;margin:0 0 .9rem}
-    .hero p{color:var(--muted);margin:0 0 1.4rem}
-    .hero .media img{border-radius:12px;border:1px solid var(--border)}
-    .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.4rem}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4rem 0}
+    .hero h2{font-size:2.2rem;margin:0 0 1.2rem}
+    .hero p{color:var(--muted);margin:0 0 1.6rem}
 
-    /* Generic sections */
-    section{padding:3.75rem 0}
-    .section-title{font-size:1.55rem;margin:0 0 1rem}
+    section{padding:3.5rem 0}
+    .section-title{font-size:1.6rem;margin-bottom:1.2rem}
 
-    /* About (single paragraph, no header) */
-    .about p{color:var(--muted);font-size:1.05rem;max-width:80ch;margin:0}
-
-    /* Services (image left, text right) */
-    .service-card{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;border:1px solid var(--border);border-radius:12px;padding:2rem;background:var(--surface)}
+    /* Services (no box) */
+    .service-card{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
     .service-card img{border-radius:10px;width:100%;height:auto}
-    .service-card h3{margin:.1rem 0 .5rem;font-size:1.25rem}
+    .service-card h4{margin:.1rem 0 .7rem}
     .service-card p{color:var(--muted);margin:0}
 
     /* Products */
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
-    .card{border:1px solid var(--border);border-radius:12px;padding:1.1rem;background:#fff}
-    .card img{border-radius:8px;width:100%;height:auto}
-    .card h4{margin:.75rem 0 .35rem;font-size:1rem}
-    .price{font-weight:800;margin-top:.25rem}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+    .card{border:1px solid var(--border);border-radius:10px;padding:1rem;display:flex;flex-direction:column;align-items:start}
+    .card img{border-radius:8px;width:100%;height:200px;object-fit:cover;margin-bottom:1rem}
+    .card h5{margin:.2rem 0 .4rem;font-size:1.35rem;font-weight:700;line-height:1.25}
+    .muted{color:var(--muted)}
+    .card-foot{display:flex;justify-content:space-between;align-items:center;gap:.6rem;width:100%}
+    .price{font-weight:800}
 
-    /* Contact (left info text removed email/phone; right form) */
-    .contact-shell{border:1px solid var(--border);border-radius:12px;background:#fff;padding:1.5rem}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.25rem;align-items:start}
-    form{display:grid;gap:1rem}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    label{font-size:.9rem;color:#111827;display:block;margin-bottom:.45rem}
-    input,textarea{border:1px solid var(--border);border-radius:8px;padding:.7rem;font:inherit;width:100%;background:#fff}
-    textarea{min-height:130px;resize:vertical}
-
-    /* Checkout section */
-    .checkout form .row{gap:1rem}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:start}
+    .contact-right{padding-right:.5rem} /* a touch more breathing room on the right */
+    form{display:grid;gap:1.2rem}
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      column-gap:1.2rem;   /* ensures horizontal spacing between boxes */
+      row-gap:1rem;
+    }
+    label{font-size:.9rem;color:#111827;display:block;margin-bottom:.4rem}
+    .req{color:#ef4444;margin-left:.25rem}
+    input,textarea{
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:.8rem;
+      font:inherit;
+      width:100%;
+      background:#fff;
+    }
+    textarea{min-height:120px;resize:vertical}
 
     /* Footer */
-    footer{border-top:1px solid var(--border);padding:1.4rem 0;background:#fafafa}
-    .foot{display:flex;justify-content:center;align-items:center}
+    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);font-size:.9rem;background:#fafafa}
+    footer .info{margin-top:.5rem;text-align:center}
 
     /* Responsive */
-    @media (max-width: 960px){
+    @media(max-width:800px){
       .hero{grid-template-columns:1fr}
-    }
-    @media (max-width: 800px){
       .service-card{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr;column-gap:0}
+      .contact-right{padding-right:0}
+      .actions{gap:.5rem}
+      .actions a{padding:.35rem .55rem}
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <nav class="nav container" aria-label="Primary">
-      <a href="#top" class="brand" aria-label="25s home">
-        <!-- icon only -->
-        <div class="logo"><img src="assets/logo.jpg" alt="25s logo"></div>
+    <nav class="nav container">
+      <a class="logo" href="#intro" aria-label="25s Home">
+        <img src="assets/logo.jpg" alt="25s logo">
+        <!-- If you want icon-only, delete the span below -->
+        <span class="brand-name">25s</span>
       </a>
-      <div class="actions" role="navigation">
+      <div class="actions" role="navigation" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
@@ -116,119 +117,138 @@
   <!-- Hero -->
   <section class="hero container" id="intro">
     <div>
-      <h1>Fast, affordable, and professional phone &amp; tablet repairs — we come to you and fix it on the spot.</h1>
+      <h2>Fast, affordable, and professional phone &amp; tablet repairs — we come to you and fix it on the spot.</h2>
       <p>Transparent quotes, OEM-grade parts and friendly pros. Book an on-site visit at your home or office — most repairs done in one visit.</p>
-      <div class="cta-row">
+      <div style="display:flex;gap:1.2rem;flex-wrap:wrap">
         <a href="#contact" class="btn">Get a Quick Quote</a>
         <a href="#products" class="btn secondary">Browse Accessories</a>
       </div>
     </div>
-    <div class="media">
-      <img src="assets/main_banner.png" alt="Technician repairing a smartphone on-site" />
+    <div>
+      <img src="assets/main_banner.png" alt="Technician repairing a smartphone" style="border-radius:12px;border:1px solid var(--border)" />
     </div>
   </section>
 
-  <!-- About: single paragraph (no header) -->
+  <!-- About -->
   <section class="about container" id="about">
-    <p>Founded in 2024 in Sydney, 25s brings mobile repair and sales services directly to your doorstep. Our skilled technicians handle everything from screen replacements to hardware fixes, delivering fast, reliable, and professional service. With nearly a decade of experience, we make device repairs hassle-free, affordable, and convenient — keeping your devices and your day running smoothly.</p>
+    <p style="font-size:1.05rem;color:var(--muted);max-width:70ch;margin:auto;text-align:center">
+      Founded in 2014 in Sydney, 25s brings mobile repair and sales services directly to your doorstep. Our skilled technicians handle everything from screen replacements to hardware fixes, delivering fast, reliable, and professional service. With nearly a decade of experience, we make device repairs hassle-free, affordable, and convenient — keeping your devices and your day running smoothly.
+    </p>
   </section>
 
   <!-- Services -->
   <section class="container" id="services">
-    <h2 class="section-title">On-Site Phone &amp; Tablet Repairs</h2>
-    <article class="service-card">
+    <div class="service-card">
       <img src="assets/service_banner.jpg" alt="On-site phone and tablet repair" />
       <div>
-        <h3>We Come to You</h3>
-        <p>Professional phone, tablet, and small electronics repairs at your location. Our experienced technicians cover Sydney, bringing fast, reliable service and transparent quotes — so you know exactly what you’ll pay before we begin.</p>
+        <h4>On-Site Phone &amp; Tablet Repairs</h4>
+        <p>Professional phone, tablet, and small electronics repairs at your location. Fast, reliable, transparent quotes — most jobs finished in one visit.</p>
       </div>
-    </article>
+    </div>
   </section>
 
   <!-- Products -->
   <section class="container" id="products">
-    <h2 class="section-title">Popular Products</h2>
+    <h3 class="section-title">Popular Products</h3>
     <div class="products-grid" id="productsGrid"></div>
   </section>
 
   <!-- Contact -->
   <section class="container" id="contact">
-    <div class="contact-shell">
-      <div class="contact-grid">
-        <!-- Left: heading + short message; (no email/phone here per request) -->
-        <div class="flow">
-          <h2 class="section-title" style="margin-bottom:.25rem">Contact Us</h2>
-          <p class="muted" style="max-width:46ch;margin:0">Got a broken device or a question about our services? Reach out today — our friendly team is ready to give you a quick quote and get your repair booked fast.</p>
-        </div>
-        <!-- Right: compact, all required, labels on top -->
-        <div>
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+    <div class="contact-grid">
+      <div>
+        <h3 class="section-title">Contact Us</h3>
+        <p class="muted">Got a broken device or a question about our services? Reach out today — our friendly team is ready to give you a quick quote and get your repair booked fast.</p>
+      </div>
+      <div class="contact-right">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-            <div class="row">
-              <div>
-                <label for="firstName">First Name</label>
-                <input id="firstName" name="firstName" required />
-              </div>
-              <div>
-                <label for="lastName">Last Name</label>
-                <input id="lastName" name="lastName" required />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label for="email">Email</label>
-                <input id="email" type="email" name="email" required />
-              </div>
-              <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" required />
-              </div>
-            </div>
-
+          <div class="row">
             <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
+              <label for="firstName">First Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="firstName" name="firstName" required />
             </div>
+            <div>
+              <label for="lastName">Last Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="lastName" name="lastName" required />
+            </div>
+          </div>
 
-            <div style="margin-top:.25rem">
-              <button class="btn sm" type="submit">Send Message</button>
+          <div class="row">
+            <div>
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" type="email" name="email" required />
             </div>
-          </form>
-        </div>
+            <div>
+              <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
 
-  
-  <!-- Footer (icon only) -->
+  <!-- Footer -->
   <footer>
-    <div class="container foot">
-      <div class="brand">
-        <div class="logo"><img src="assets/logo.jpg" alt="25s logo"></div>
-      </div>
+    <div class="container" style="text-align:center">
+      <a class="logo" href="#intro" aria-label="25s">
+        <img src="assets/logo.jpg" alt="25s logo">
+      </a>
+      <div class="info">25s.tech.info@gmail.com &nbsp; | &nbsp; (61) 433 311 605</div>
     </div>
   </footer>
 
+  <!-- Product Details Modal -->
+  <dialog id="productModal" style="border:none;border-radius:12px;padding:1.5rem;max-width:560px;width:92%">
+    <h4 id="modalTitle" style="margin:.25rem 0 .5rem;font-size:1.25rem"></h4>
+    <p id="modalDesc" class="muted" style="margin:0 0 1rem"></p>
+    <form method="dialog">
+      <button class="btn secondary" type="submit">Close</button>
+    </form>
+  </dialog>
+
   <script>
-    // One card per product
     const PRODUCTS = [
-      {id:'p1',name:'Phone & Tablet Screen Press Clamp',price:49,img:'assets/screen_press_clamp.jpg'},
-      {id:'p2',name:'Phone Dust Cleaning Kit',price:25,img:'assets/clean_kit.png'},
-      {id:'p3',name:'3M Skin-Feel Kevlar Phone Back Film',price:19,img:'assets/phone_back_film.jpg'}
+      {id:'p1',name:'Phone Screen Press Clamp',price:45.00,img:'assets/screen_press_clamp.jpg',desc:'Professional screen press clamps designed for phone and tablet repair. These adjustable dual-axis clamps hold screens firmly in place during gluing or reassembly, ensuring a tight, even bond. Ideal for LCD replacement, screen refurbishing, and adhesive curing — making repairs more precise and reliable.'},
+      {id:'p2',name:'Phone Dust Cleaning Kit',price:69.94,img:'assets/clean_kit.png',desc:'Complete cleaning kit for phones, charging ports, speaker grills, and tight gaps. Includes tools to remove dust and debris, plus screen cleaning solution for a spotless finish. Perfect for maintaining clear sound, smooth charging, and a cleaner device overall.'},
+      {id:'p3',name:'Phone Back Film',price:25.99,img:'assets/phone_back_film.jpg',desc:'Upgrade your phone’s protection with our premium 3M skin-feel Kevlar back film. Precisely laser-cut for a perfect fit, this ultra-thin 0.3mm carbon fiber material offers excellent scratch resistance, a soft skin-like texture, and full coverage — even for foldable screens. Durable yet lightweight, it keeps your device safe while maintaining its sleek look.'}
     ];
-    const grid = document.getElementById('productsGrid');
+    const grid=document.getElementById('productsGrid');
+    const modal=document.getElementById('productModal');
+    const modalTitle=document.getElementById('modalTitle');
+    const modalDesc=document.getElementById('modalDesc');
+
     PRODUCTS.forEach(p=>{
-      const card=document.createElement('article');
+      const card=document.createElement('div');
       card.className='card';
       card.innerHTML=`
         <img src="${p.img}" alt="${p.name}">
-        <h4>${p.name}</h4>
-        <div class="price">$${p.price}</div>
+        <h5>${p.name}</h5>
+        <p class="muted" style="margin:.3rem 0 .7rem">${p.desc}</p>
+        <div class="card-foot">
+          <div class="price">$${p.price}</div>
+          <button class="btn secondary" type="button" data-name="${p.name}" data-desc="${p.desc}">Details</button>
+        </div>
       `;
       grid.appendChild(card);
+    });
+
+    grid.addEventListener('click', e=>{
+      const btn = e.target.closest('button[data-name]');
+      if(!btn) return;
+      modalTitle.textContent = btn.dataset.name;
+      modalDesc.textContent = btn.dataset.desc;
+      modal.showModal();
     });
 
     // Smooth scrolling
