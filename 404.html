@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Page Not Found | 25s</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --border:#e5e7eb;
+      --muted:#6b7280;
+      --text:#0f172a;
+      --brand:#0ea5e9;
+      --brand-600:#0284c7;
+      --bg:#ffffff;
+      --surface:#fafafa;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Inter",sans-serif;color:var(--text);line-height:1.7;background:var(--bg)}
+    .container{width:min(900px,92%);margin-inline:auto}
+
+    /* Header */
+    header{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:10}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+    .logo img{width:36px;height:36px;display:block}
+    .brand-name{font-weight:800;color:var(--text)}
+    .nav__actions{display:flex;gap:1rem;align-items:center}
+    .nav__link{display:inline-block;padding:.4rem .7rem;border-radius:8px;color:#334155;text-decoration:none;font-weight:600}
+    .nav__link:hover{background:#f1f5f9}
+
+    /* 404 content */
+    main{display:flex;align-items:center;justify-content:center;min-height:70vh;padding:2.5rem 0}
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:2rem;
+      width:min(680px,100%);
+      text-align:center;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+      background:#fff;
+    }
+    .icon{
+      width:64px;height:64px;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:rgba(14,165,233,.12);
+      margin:0 auto 1rem;
+    }
+    .icon svg{width:34px;height:34px;display:block;stroke:var(--brand)}
+    h1{margin:.2rem 0 .4rem;font-size:1.8rem}
+    .muted{color:var(--muted)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:.7rem 1.1rem;border-radius:10px;background:var(--brand);
+      color:#fff;font-weight:700;border:0;cursor:pointer;text-decoration:none;margin-top:1rem
+    }
+    .btn:hover{background:var(--brand-600)}
+
+    /* Footer (center icon) */
+    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);font-size:.9rem;background:var(--surface)}
+    footer .logo{justify-content:center;margin-inline:auto}
+    footer .logo img{width:40px;height:40px;display:block;margin:0 auto}
+    footer .info{text-align:center;margin-top:.5rem}
+
+    @media (max-width:800px){
+      .nav__actions{gap:.5rem}
+      .nav__link{padding:.35rem .55rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="nav container" aria-label="Site">
+      <a class="logo" href="/25s/" aria-label="25s Home">
+        <img src="assets/logo_svg.png" alt="25s logo" loading="lazy">
+        <span class="brand-name"></span>
+      </a>
+      <div class="nav__actions" role="navigation" aria-label="Primary">
+        <a class="nav__link" href="/25s/#services">Services</a>
+        <a class="nav__link" href="/25s/#products">Products</a>
+        <a class="nav__link" href="/25s/#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 404 -->
+  <main>
+    <section class="card" role="status" aria-live="polite">
+      <div class="icon" aria-hidden="true">
+        <!-- “x-circle” icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <circle cx="12" cy="12" r="9" stroke="currentColor"/>
+          <path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1>404 — Page Not Found</h1>
+      <p class="muted">The page you’re looking for doesn’t exist or may have moved.</p>
+      <a class="btn" href="/25s/">Back to Home</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a class="logo" href="/25s/" aria-label="25s">
+        <img src="assets/logo_svg.png" alt="25s logo" loading="lazy">
+      </a>
+      <div class="info">E: 25s.tech.info@gmail.com &nbsp; | &nbsp; P: +61 433 311 605</div>
+      <div class="info">Copyright © 25s. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
