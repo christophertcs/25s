@@ -78,8 +78,17 @@
     .card img{border-radius:8px;width:100%;height:200px;object-fit:cover;margin-bottom:1rem}
     .card h5{margin:.2rem 0 .4rem;font-size:1rem;font-weight:700;line-height:1.25}
     .muted{color:var(--muted)}
-    .card-foot{display:flex;justify-content:space-between;align-items:center;gap:.6rem;width:100%}
-    .price{font-weight:800}
+    .card-foot {
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline; /* <-- baseline aligns price text and button text */
+      gap:.6rem;
+      width:100%;
+    }
+    .price {
+      font-weight: 700;   /* still strong, but not overly heavy */
+      font-size: 0.9rem;  /* slightly smaller */
+    }
 
     /* NEW: clamp card descriptions to a few lines */
     .desc{
@@ -134,6 +143,14 @@
       .actions{gap:.5rem}
       .actions a{padding:.35rem .55rem}
     }
+    
+    .card .btn.secondary {
+      padding: 0.4rem 0.7rem; 
+      font-size: 0.85rem;   
+      border-radius: 7px;  
+    }
+    
+    
   </style>
 </head>
 <body>
