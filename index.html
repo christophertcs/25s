@@ -139,6 +139,33 @@ footer .logo img {
 }
     footer .info{margin-top:.5rem;text-align:center}
 
+/* About section - clean style without shadow */
+.about {
+  background: #f9fafb;          /* soft light background */
+  padding: 4rem 2rem;
+  border-radius: 14px;          /* rounded edges */
+  margin: 2rem 0;               /* breathing room top & bottom */
+  text-align: center;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #374151;               /* darker muted tone for contrast */
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+.about p::before {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.about p::after {
+  color: var(--brand);
+  font-weight: 600;
+}
+    
     /* Responsive */
     @media(max-width:800px){
       .hero{grid-template-columns:1fr}
